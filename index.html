@@ -62,39 +62,56 @@
           })
           document.getElementById(id).innerText = timeNow;
         }
-        
-        function setTimeZones() {
-          setDate("Europe/London", "uk-date")
-          setTime("Europe/London", "uk-time")
-          
-          setDate("Europe/Athens", "ath-date")
-          setTime("Europe/Athens", "ath-time")
-  
-          setDate("Asia/Bangkok", "bkk-date")
-          setTime("Asia/Bangkok", 'bkk-time')
+
+        function hideTimezoneIfLocal() {
+          const localTimeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+          if (localTimeZone === 'Europe/London') {
+            document.getElementById('uk-timezone').style.display = 'none';
+          }
+          if (localTimeZone === 'Europe/Athens') {
+            document.getElementById('ath-timezone').style.display = 'none';
+          }
+          if (localTimeZone === 'Asia/Bangkok') {
+            document.getElementById('bkk-timezone').style.display = 'none';
+          }
         }
-        setInterval(() => setTimeZones(), 1000)
+
+        function setTimeZones() {
+          setDate("Europe/London", "uk-date");
+          setTime("Europe/London", "uk-time");
+          
+          setDate("Europe/Athens", "ath-date");
+          setTime("Europe/Athens", "ath-time");
+
+          setDate("Asia/Bangkok", "bkk-date");
+          setTime("Asia/Bangkok", 'bkk-time');
+
+          hideTimezoneIfLocal();
+        }
+
+        setInterval(() => setTimeZones(), 1000);
         setTimeZones();
       };
     </script>
   </head>
   
   <body>
-    <div class="flex flex-row items-center justify-center m-auto h-screen p-5">
-      <div class="grid grid-col gap-20">
-         <div>
+    <div class="flex flex-row items-center justify-center m-auto h-screen">
+      <div class="grid grid-col gap-20 py-10">
+         <div id="uk-timezone">
           <div class="font-light text-sm" id="uk-date"></div>
           <div class="font-black tracking-tighter text-5xl">UK 🇬🇧</div>
           <div class="text-8xl font-black tracking-tighter" id="uk-time"></div>
         </div>
         
-        <div>
+        <div id="ath-timezone">
           <div class="font-light text-sm" id="ath-date"></div>
           <div class="font-black tracking-tighter text-5xl">Athens 🇬🇷</div>
           <div class="text-8xl font-black tracking-tighter" id="ath-time"></div>
         </div>
   
-        <div>
+        <div id="bkk-timezone">
           <div class="font-light text-sm" id="bkk-date"></div>
           <div class="font-black tracking-tighter text-5xl">Thailand 🇹🇭</div>
           <div class="text-8xl font-black tracking-tighter" id="bkk-time"></div>
