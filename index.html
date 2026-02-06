@@ -53,15 +53,13 @@
             month: 'short',
             day: 'numeric'
           }).format(new Date())
-          const dateElement = document.getElementByID(id);
-          dateElement.innerText = dateToday;
+          document.getElementByID(id).innerText = dateToday;
         }
         
         function setTime(timezone, id) {
           const timeNow = new Date().toLocaleTimeString('en-US', {
             timeZone: timezone
           })
-          const timeElement = document.getElementByID(id);
           document.getElementById(id).innerText = timeNow;
         }
 
@@ -101,7 +99,7 @@
   <body>
     <div class="flex flex-row items-center justify-center m-auto h-screen">
       <div class="grid grid-col gap-20 py-10">
-         <div id="uk-timezone">
+        <div id="uk-timezone">
           <div class="font-light text-sm" id="uk-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">UK 🇬🇧</div>
           <div class="text-6xl md:text-8xl font-black tracking-tighter" id="uk-time"></div>
