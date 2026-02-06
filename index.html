@@ -1,128 +1,106 @@
 <html>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>UK : Athens : Bangkok Time - Living Poster</title>
-  <style type="text/tailwindcss">
-    :root {
-        --background-color: #111014;
-        --text-color: #F4F1ED;
-        --link-color: #726F6B;
-        --link-active-color: #7F7C78;
-        --link-visited-color: #65625F;
-        --link-hover-color: #585553;
-        --background: #12101A;
-      }
-
-      body {
-        font-family: "Archivo", "Arial";
-        background-color: var(--background-color);
-        color: var(--text-color);
-      }
-
-      a:link {
-        text-decoration: none;
-        color: var(--link-color);
-      }
-
-      a:active {
-        color: var(--link-active-color);
-      }
-
-      a:visited {
-        color: var(--link-visited-color);
-      }
-
-      a:hover {
-        color: var(--link-hover-color);
-        text-decoration: underline;
-      }      
-   </style>
-  <script>
-    window.onload = function() {
-      function setDate(timezone, id) {
-                const dateToday = new Intl.DateTimeFormat('en-US', {
-          timeZone: timezone,
-          weekday: 'long',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        }).format(new Date())
-        document.getElementById(id).innerText = dateToday;
-      }
-      
-      function setTime(timezone, id) {
-        const timeNow = new Date().toLocaleTimeString('en-US', {
-          timeZone: timezone
-        })
-        document.getElementById(id).innerText = timeNow;
-      }
-      
-      function setATHDate() {
-        setDate("Europe/Athens", "ath-date")
-      }
-
-      function setATHTime() {
-        setTime("Europe/Athens", "ath-time")
-      }
-
-      function setBKKDate() {
-        setDate("Asia/Bangkok", "bkk-date")
-      }
-
-      function setBKKTime() {
-        setTime("Asia/Bangkok", 'bkk-time')
-      }
-      
-      function setUKDate() {
-        setDate("Europe/London", "uk-date")
-      }
-
-      function setUKTime() {
-        setTime("Europe/London", "uk-time")
-      }
-
-      function setTimeZones() {
-        setBKKTime();
-        setBKKDate();
-        setATHTime();
-        setATHDate();
-        setUKTime();
-        setUKDate();
-      }
-      setInterval(() => setTimeZones(), 1000)
-      setTimeZones();
-    };
-  </script>
-</head>
-
-<body>
-  <div class="flex flex-row items-center justify-center m-auto h-screen p-5">
-    <div class="grid grid-col gap-20">
-       <div>
-        <div class="font-light text-sm" id="uk-date"></div>
-        <div class="font-black tracking-tighter text-5xl">UK 🇬🇧</div>
-        <div class="text-8xl font-black tracking-tighter" id="uk-time"></div>
-      </div>
-      
-      <div>
-        <div class="font-light text-sm" id="ath-date"></div>
-        <div class="font-black tracking-tighter text-5xl">Athens 🇬🇷</div>
-        <div class="text-8xl font-black tracking-tighter" id="ath-time"></div>
-      </div>
-
-      <div>
-        <div class="font-light text-sm" id="bkk-date"></div>
-        <div class="font-black tracking-tighter text-5xl">Thailand 🇹🇭</div>
-        <div class="text-8xl font-black tracking-tighter" id="bkk-time"></div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>UK : Athens : Bangkok Time - Living Poster</title>
+    <style type="text/tailwindcss">
+      :root {
+          --background-color: #111014;
+          --text-color: #F4F1ED;
+          --link-color: #726F6B;
+          --link-active-color: #7F7C78;
+          --link-visited-color: #65625F;
+          --link-hover-color: #585553;
+          --background: #12101A;
+        }
+  
+        body {
+          font-family: "Archivo", "Arial";
+          background-color: var(--background-color);
+          color: var(--text-color);
+        }
+  
+        a:link {
+          text-decoration: none;
+          color: var(--link-color);
+        }
+  
+        a:active {
+          color: var(--link-active-color);
+        }
+  
+        a:visited {
+          color: var(--link-visited-color);
+        }
+  
+        a:hover {
+          color: var(--link-hover-color);
+          text-decoration: underline;
+        }      
+     </style>
+    <script>
+      window.onload = function() {
+        function setDate(timezone, id) {
+          const dateToday = new Intl.DateTimeFormat('en-US', {
+            timeZone: timezone,
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          }).format(new Date())
+          document.getElementById(id).innerText = dateToday;
+        }
+        
+        function setTime(timezone, id) {
+          const timeNow = new Date().toLocaleTimeString('en-US', {
+            timeZone: timezone
+          })
+          document.getElementById(id).innerText = timeNow;
+        }
+        
+        function setTimeZones() {
+          setDate("Europe/London", "uk-date")
+          setTime("Europe/London", "uk-time")
+          
+          setDate("Europe/Athens", "ath-date")
+          setTime("Europe/Athens", "ath-time")
+  
+          setDate("Asia/Bangkok", "bkk-date")
+          setTime("Asia/Bangkok", 'bkk-time')
+        }
+        setInterval(() => setTimeZones(), 1000)
+        setTimeZones();
+      };
+    </script>
+  </head>
+  
+  <body>
+    <div class="flex flex-row items-center justify-center m-auto h-screen p-5">
+      <div class="grid grid-col gap-20">
+         <div>
+          <div class="font-light text-sm" id="uk-date"></div>
+          <div class="font-black tracking-tighter text-5xl">UK 🇬🇧</div>
+          <div class="text-8xl font-black tracking-tighter" id="uk-time"></div>
+        </div>
+        
+        <div>
+          <div class="font-light text-sm" id="ath-date"></div>
+          <div class="font-black tracking-tighter text-5xl">Athens 🇬🇷</div>
+          <div class="text-8xl font-black tracking-tighter" id="ath-time"></div>
+        </div>
+  
+        <div>
+          <div class="font-light text-sm" id="bkk-date"></div>
+          <div class="font-black tracking-tighter text-5xl">Thailand 🇹🇭</div>
+          <div class="text-8xl font-black tracking-tighter" id="bkk-time"></div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 
 </html>
