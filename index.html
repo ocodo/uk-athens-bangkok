@@ -53,14 +53,16 @@
             month: 'short',
             day: 'numeric'
           }).format(new Date())
-          document.getElementByID(id).innerText = dateToday;
+          const dateEl = document.getElementByID(id)
+          dateEl.innerText = dateToday;
         }
         
         function setTime(timezone, id) {
           const timeNow = new Date().toLocaleTimeString('en-US', {
             timeZone: timezone
           })
-          document.getElementById(id).innerText = timeNow;
+          const timeEl = document.getElementById(id)
+          timeEl.innerText = timeNow;
         }
 
         function hideTimezoneIfLocal() {
@@ -102,19 +104,19 @@
         <div id="uk-timezone">
           <div class="font-light text-sm" id="uk-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">UK 🇬🇧</div>
-          <div class="text-6xl md:text-8xl font-black tracking-tighter" id="uk-time"></div>
+          <div class="text-5xl md:text-8xl font-black tracking-tighter" id="uk-time"></div>
         </div>
         
         <div id="ath-timezone">
           <div class="font-light text-sm" id="ath-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">Athens 🇬🇷</div>
-          <div class="text-6xl md:text-8xl font-black tracking-tighter" id="ath-time"></div>
+          <div class="text-5xl md:text-8xl font-black tracking-tighter" id="ath-time"></div>
         </div>
   
         <div id="bkk-timezone">
           <div class="font-light text-sm" id="bkk-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">Thailand 🇹🇭</div>
-          <div class="text-6xl md:text-8xl font-black tracking-tighter" id="bkk-time"></div>
+          <div class="text-5xl md:text-8xl font-black tracking-tighter" id="bkk-time"></div>
         </div>
       </div>
     </div>
