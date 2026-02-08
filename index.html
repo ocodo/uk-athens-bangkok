@@ -20,30 +20,30 @@
           --link-hover-color: #585553;
           --background: #12101A;
         }
-  
+
         body {
           font-family: "Archivo", "Arial";
           background-color: var(--background-color);
           color: var(--text-color);
         }
-  
+
         a:link {
           text-decoration: none;
           color: var(--link-color);
         }
-  
+
         a:active {
           color: var(--link-active-color);
         }
-  
+
         a:visited {
           color: var(--link-visited-color);
         }
-  
+
         a:hover {
           color: var(--link-hover-color);
           text-decoration: underline;
-        }      
+        }
      </style>
     <script>
       window.onload = function() {
@@ -58,7 +58,7 @@
           const dateEl = document.getElementById(id)
           dateEl.innerText = dateToday;
         }
-        
+
         function setTime(timezone, id) {
           const timeNow = new Date().toLocaleTimeString('en-US', {
             timeZone: timezone
@@ -84,7 +84,7 @@
         function setTimeZones() {
           setDate("Europe/London", "uk-date");
           setTime("Europe/London", "uk-time");
-          
+
           setDate("Europe/Athens", "ath-date");
           setTime("Europe/Athens", "ath-time");
 
@@ -99,7 +99,7 @@
       };
     </script>
   </head>
-  
+
   <body>
     <div class="flex flex-row items-center justify-center m-auto h-screen">
       <div class="grid grid-col gap-20 py-10">
@@ -108,13 +108,13 @@
           <div class="font-black tracking-tighter text-4xl md:text-5xl">UK 🇬🇧</div>
           <div class="text-5xl md:text-8xl font-black tracking-tighter" id="uk-time"></div>
         </div>
-        
+
         <div id="ath-timezone">
           <div class="font-light text-sm" id="ath-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">Athens 🇬🇷</div>
           <div class="text-5xl md:text-8xl font-black tracking-tighter" id="ath-time"></div>
         </div>
-  
+
         <div id="bkk-timezone">
           <div class="font-light text-sm" id="bkk-date"></div>
           <div class="font-black tracking-tighter text-4xl md:text-5xl">Thailand 🇹🇭</div>
